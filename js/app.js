@@ -2,6 +2,7 @@ var inputTarea = document.getElementById("nuevaTarea");
 var botonAnhadir = document.getElementById("anhadirTarea");
 var contadorTareas = document.getElementById("numeroTareas");
 var mensajeExito = document.getElementById("felicitacion");
+var botonLimpiar = document.getElementById("limpiar");
 var tareas = [];
 
 botonAnhadir.addEventListener("click", function() {
@@ -14,6 +15,13 @@ botonAnhadir.addEventListener("click", function() {
       inputTarea.value = ""; // Limpiar el campo de entrada
    }
 }) 
+
+botonLimpiar.addEventListener("click", function() {
+   var lista = document.getElementById("listaTareas");
+   lista.innerHTML = ""; // Limpiar la lista de tareas
+   tareas = []; // Vaciar el array de tareas
+   contadorTareas.textContent = "Tareas Pendientes: 0"; // Reiniciar
+})
 
 function mostrarTareas(tareas) {
    var lista = document.getElementById("listaTareas");
