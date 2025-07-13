@@ -1,6 +1,7 @@
 var inputTarea = document.getElementById("nuevaTarea");
 var botonAnhadir = document.getElementById("anhadirTarea");
 var contadorTareas = document.getElementById("numeroTareas");
+var mensajeExito = document.getElementById("felicitacion");
 var tareas = [];
 
 botonAnhadir.addEventListener("click", function() {
@@ -29,7 +30,10 @@ function mostrarTareas(tareas) {
             li.style.backgroundColor = "lightgreen"; // Cambiar el color de fondo
             li.style.color = "black"; // Cambiar el color del texto
             checkbox.disabled = true; // Deshabilitar el checkbox
-            actualizarContador(tareas, index); // Actualizar el contador de tareas
+            actualizarContador(tareas, index); // Actualizar el contador de tareas  
+            if (tareas.length == 0) {
+               mensajeExito.textContent = "¡Felicidades! Has completado todas las tareas.";
+            }
          } else {
             li.style.textDecoration = "none"; // Desmarcar
             li.style.backgroundColor = ""; // Cambiar el color de fondo
