@@ -17,7 +17,7 @@ botonAnhadir.addEventListener("click", function() {
 function mostrarTareas(tareas) {
    var lista = document.getElementById("listaTareas");
    lista.innerHTML = ""; // Limpiar la lista antes de mostrar
-   tareas.forEach((tarea)=> {
+   tareas.forEach((tarea,index)=> {
       var li = document.createElement("li");
       var checkbox = document.createElement("input");
 
@@ -28,6 +28,8 @@ function mostrarTareas(tareas) {
             li.style.textDecoration = "line-through"; // Marcar como completada
             li.style.backgroundColor = "lightgreen"; // Cambiar el color de fondo
             li.style.color = "black"; // Cambiar el color del texto
+            checkbox.disabled = true; // Deshabilitar el checkbox
+            actualizarContador(tareas, index); // Actualizar el contador de tareas
          } else {
             li.style.textDecoration = "none"; // Desmarcar
             li.style.backgroundColor = ""; // Cambiar el color de fondo
@@ -36,12 +38,16 @@ function mostrarTareas(tareas) {
       });
       lista.appendChild(li);
       li.appendChild(checkbox);
-      actualizarContador();
+      mostrarContador();
    })
 }
 
-function actualizarContador() {
+function mostrarContador() {
+   contadorTareas.textContent = "Tareas Pendientes: " + tareas.length;
+}
+function actualizarContador(tareas, index) {
+   tareas.splice(index); // Eliminar la tarea completada
    contadorTareas.textContent = "Tareas Pendientes: " + tareas.length;
 }
 
-actualizarContador(); // Inicializar el contador de tareas al cargar la página
+mostrarContador(); // Inicializar el contador de tareas al cargar la página
