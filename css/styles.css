@@ -10,3 +10,26 @@ body{
 div{
     color: white;
 }
+
+.container{
+    width: 80%;
+    margin: auto;
+    background-color: #222;
+}
+
+
+#listaTareasContainer li{
+    list-style: none;
+    padding: 10px;
+    background-color: #333;
+    border-radius: 5px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #333;
+}
+
+#listaTareasContainer input[type="checkbox"]{
+    margin-left: 25px;
+
+}
