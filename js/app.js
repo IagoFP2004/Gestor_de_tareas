@@ -48,6 +48,13 @@ function mostrarTareas(tareas) {
       lista.appendChild(li);
       li.appendChild(checkbox);
       mostrarContador();
+
+      li.addEventListener("dblclick", function() {
+         lista.removeChild(li); // Eliminar la tarea al hacer doble clic
+         tareas.splice(index, 1); // Eliminar la tarea del array
+         actualizarContador(); // Actualizar el contador de tareas
+      })
+
    })
 }
 
